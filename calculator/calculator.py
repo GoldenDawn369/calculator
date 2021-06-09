@@ -1,4 +1,15 @@
 class Calculator:
+    """
+    DESCRIPTION
+        Calculator class performing these mathematical functions:
+        - addition,
+        - subtraction,
+        - multiplication,
+        - division,
+        - X root of number.
+        Also includes function to reset value back to 0.
+    """
+
     def __init__(self) -> None:
         self.__value = 0.0
 
@@ -27,7 +38,7 @@ class Calculator:
         return self.__value
 
     def divide(self, x) -> float:
-
+        """divides current value by input number"""
         if isinstance(x, str):
             return print("You cannot divide letters, silly")
 
@@ -39,9 +50,11 @@ class Calculator:
         return self.__value
 
     def root(self, x) -> float:
-
+        """takes x root of current value"""
         if self.__value < 0:
-            return print(f"This is wrong, it's good to imagine things though : {self.__value ** (1 / x)}")
+            return print(
+                f"This is wrong, it's good to imagine things though : {self.__value ** (1 / x)}"
+            )
 
         if isinstance(x, str):
             return print("You cannot take roots of letters, silly")
@@ -49,10 +62,12 @@ class Calculator:
         if x == 0:
             self.__value = 1
 
-        self.__value = self.__value ** (1 / x)
+        else:
+            self.__value = self.__value ** (1 / x)
         return self.__value
 
     def reset(self) -> None:
+        """resets value to 0"""
         self.__value = 0.0
 
     @property
