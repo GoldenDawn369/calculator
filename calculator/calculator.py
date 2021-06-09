@@ -69,6 +69,7 @@ class Calculator:
     def reset(self) -> None:
         """resets value to 0"""
         self.__value = 0.0
+        return self.__value
 
     @property
     def value(self) -> float:
