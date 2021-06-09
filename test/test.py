@@ -28,12 +28,12 @@ class MyTestCase(unittest.TestCase):
 
     def test_root_zero(self) -> None:
         temp = Calculator()
-        self.assertEqual(temp.root(0),1)
+        self.assertEqual(temp.root(0), 1)
 
     def test_reset(self) -> None:
         temp = Calculator()
         temp.value = 86
-        self.assertFalse(temp.reset())
+        self.assertEqual(temp.reset(), 0)
 
 
 if __name__ == "__main__":
