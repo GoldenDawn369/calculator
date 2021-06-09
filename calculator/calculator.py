@@ -1,47 +1,66 @@
 class Calculator:
+    def __init__(self) -> None:
+        self.__value = 0.0
 
+    def add(self, x) -> float:
+        """Adds input number to current value"""
+        if isinstance(x, str):
+            return print("You cannot add letters, silly")
 
+        self.__value += x
+        return self.__value
 
+    def subtract(self, x) -> float:
+        """subtracts input number from current value"""
+        if isinstance(x, str):
+            return print("You cannot subtract letters, silly")
 
+        self.__value -= x
+        return self.__value
 
-    def __init__(self):
-        self.value = 0.0
+    def multiply(self, x) -> float:
+        """multiplies current value by input number"""
+        if isinstance(x, str):
+            return print("You cannot multiply letters, silly")
 
+        self.__value *= x
+        return self.__value
 
-    def add(self, x):  # adds initial value with x
+    def divide(self, x) -> float:
 
-        self.value += x
-        return self.value
-
-
-    def subtract(self, x):  # subtracts x from the initial value
-        self.value -= x
-        return self.value
-
-
-    def multiply(self, x):  # multiplies initial value by x
-        self.value *= x
-        return self.value
-
-
-    def divide(self, x):  # divides initial value by x
+        if isinstance(x, str):
+            return print("You cannot divide letters, silly")
 
         if x == 0:
-            return "Cannot divide by zero"
+            return print("Cannot divide by zero")
 
-        self.value = self.value / x
+        self.__value = self.__value / x
 
-        return self.value
+        return self.__value
 
+    def root(self, x) -> float:
 
-    def root(self,x):  # takes square root of value
+        if self.__value < 0:
+            return print(f"This is wrong, it's good to imagine things though : {self.__value ** (1 / x)}")
 
-        if self.value < 0:
-            self.value = 0
+        if isinstance(x, str):
+            return print("You cannot take roots of letters, silly")
 
-        self.value = self.value ** (1 / x)
-        return self.value
+        if x == 0:
+            self.__value = 1
 
+        self.__value = self.__value ** (1 / x)
+        return self.__value
 
-    def reset(self):  # resets manipulated value to initial state
-        self.value = 0.0
+    def reset(self) -> None:
+        self.__value = 0.0
+
+    @property
+    def value(self) -> float:
+
+        return self.__value
+
+    @value.setter
+    def value(self, x) -> float:
+
+        self.__value = x
