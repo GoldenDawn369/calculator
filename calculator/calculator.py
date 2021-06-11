@@ -59,8 +59,6 @@ class Calculator:
         if isinstance(x, str):
             return print("You cannot take roots of letters, silly")
 
-        if x == 0:
-            self.__value = 1
 
         else:
             self.__value = self.__value ** (1 / x)
