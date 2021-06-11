@@ -26,9 +26,6 @@ class MyTestCase(unittest.TestCase):
         temp.value = 9
         self.assertEqual(temp.root(2), 3)
 
-    def test_root_zero(self) -> None:
-        temp = Calculator()
-        self.assertEqual(temp.root(0), 1)
 
     def test_reset(self) -> None:
         temp = Calculator()
